@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="UTF-8">
+<style>
+  body { margin:0; font-family:"Noto Sans CJK TC","Noto Sans TC",sans-serif; background:#ddd; color:#1d2433; }
+  .fig { width:1500px; background:#f4efe4; padding:44px 52px; box-sizing:border-box; }
+  h1 { font-size:32px; margin:0 0 6px; } .sub { color:#6b6457; font-size:17px; margin:0 0 26px; }
+  .phase { border:2px dashed #cfc5ae; border-radius:18px; padding:16px 18px 18px; margin-bottom:22px; position:relative; }
+  .phase-t { font-weight:700; color:#6b6457; letter-spacing:.08em; margin-bottom:12px; font-size:15px; }
+  .row { display:flex; align-items:center; gap:10px; }
+  .n { background:#fff; border:2px solid #cfc5ae; border-radius:12px; padding:10px 12px; font-size:15px; line-height:1.45; flex:1; min-width:0; }
+  .n b { display:block; font-size:16.5px; margin-bottom:2px; }
+  .n small { color:#6b6457; font-size:13px; }
+  .chk { border-color:#b8322f; background:#fff6f4; }
+  .ai { border-color:#7b5ea7; background:#f7f3ff; }
+  .new { box-shadow:0 0 0 4px #c9a22755; border-color:#c9a227; }
+  .a { color:#8a8270; font-size:24px; }
+  .loop { margin-top:10px; display:flex; gap:12px; flex-wrap:wrap; }
+  .loop span { font-size:14px; color:#b8322f; background:#fff; border:1.5px solid #e3b5b3; border-radius:999px; padding:4px 12px; }
+  .badge { position:absolute; right:16px; top:12px; font-size:13px; font-weight:700; color:#fff; background:#1d2433; border-radius:999px; padding:3px 12px; }
+  .legend { display:flex; gap:22px; font-size:14px; color:#6b6457; }
+  .legend i { display:inline-block; width:14px; height:14px; border-radius:4px; margin-right:6px; vertical-align:-2px; border:2px solid; }
+</style></head><body>
+<div class="fig" id="g">
+  <h1>LLM Wiki → 教學簡報：loop 與 graph 設計</h1>
+  <p class="sub">紅框是程式檢查，紫框是獨立 AI 檢查，金框是第一次執行後新增或往前移的檢查</p>
+
+  <div class="phase">
+    <div class="badge">每個來源重複一次 × 7</div>
+    <div class="phase-t">階段一　Ingest：先討論、後生成</div>
+    <div class="row">
+      <div class="n"><b>① 取得資料</b>搜尋並閱讀來源<br><small>WebSearch、WebFetch</small></div><div class="a">→</div>
+      <div class="n"><b>② 建立資料卡</b>改寫成逐條事實<br><small>raw/，事實編號 S2-F3</small></div><div class="a">→</div>
+      <div class="n new"><b>③ 討論</b>重點、重複、衝突、決定；<br>要寫的事實先列出事實編號</div><div class="a">→</div>
+      <div class="n new"><b>④ 生成 Wiki 頁</b>每句事實必須引用事實編號，推論只能寫在整理段落</div><div class="a">→</div>
+      <div class="n chk new"><b>⑤ lint 程式檢查</b>標記、事實編號、連結、index、log、討論紀錄</div>
+    </div>
+    <div class="loop"><span>⑤ 不通過 → 回到 ④ 修正，直到通過</span><span>找不到事實編號 → 回到 ③ 重新討論，或不寫</span></div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-t">階段二　品質把關：全部來源 ingest 完、生成簡報前</div>
+    <div class="row">
+      <div class="n ai"><b>⑥ 獨立 AI 事實核對</b>沒參與生成的 AI 逐句比對資料卡：無來源、扭曲、劇透、整理夾帶事實、C 級來源語氣</div><div class="a">→</div>
+      <div class="n"><b>⑦ 修正 Wiki</b>依核對報告改頁面，<br>規則漏洞寫回 AGENTS.md</div>
+    </div>
+    <div class="loop"><span>⑥ 判定 FAIL → ⑦ 修正 → 換一個全新的 AI 再核對一次，直到 PASS</span></div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-t">階段三　生成教學簡報</div>
+    <div class="row">
+      <div class="n"><b>⑧ 查詢 Wiki</b>先讀 index 與 overview，只用 Wiki 內容</div><div class="a">→</div>
+      <div class="n"><b>⑨ 整理大綱</b>存回 wiki/queries，<br>每張投影片對應 Wiki 頁</div><div class="a">→</div>
+      <div class="n"><b>⑩ 生成簡報</b>每張標 data-wiki 與來源，固定教學結構</div><div class="a">→</div>
+      <div class="n chk"><b>⑪ check_slides</b>可追溯、教學順序、字數、C 級語氣、測驗答案</div><div class="a">→</div>
+      <div class="n ai"><b>⑫ 新手審查 AI</b>扮演新手讀一遍，並比對 Wiki 找劇透與多寫的內容</div><div class="a">→</div>
+      <div class="n"><b>⑬ 發布</b>GitHub Pages</div>
+    </div>
+    <div class="loop"><span>⑪ 不通過 → 回到 ⑩</span><span>⑫ 判定 REVISE → 回到 ⑩；如果是 Wiki 本身有問題 → 回到階段一的 ④</span></div>
+  </div>
+
+  <div class="legend"><span><i style="border-color:#b8322f;background:#fff6f4"></i>程式檢查</span><span><i style="border-color:#7b5ea7;background:#f7f3ff"></i>獨立 AI 檢查</span><span><i style="border-color:#c9a227;background:#fff"></i>第一次執行後新增或往前移的檢查</span></div>
+</div></body></html>

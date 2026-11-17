@@ -1,0 +1,77 @@
+❌ lint 發現 76 個問題
+  - wiki/overview.md:4：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 黃金時代的作者與讀者把推理小說當成一場遊戲 [S1]
+  - wiki/overview.md:5：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - Knox 與 Van Dine 把遊戲規則寫下來，核心是讀者要拿得到和偵探一
+  - wiki/overview.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 作者可以用紅鯡魚誤導讀者 [S3]，甚至讓說故事的人本身不可信 [S4]
+  - wiki/overview.md:7：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 密室推理把不可能的犯罪變成可以推理的謎題 [S5][S6]
+  - wiki/overview.md:8：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 公平推理到現在仍有作家在延續 [S7]
+  - wiki/concepts/red-herring.md:5：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 紅鯡魚是讓人偏離正確方向的東西，可能是故意也可能是無意 [S3]
+  - wiki/concepts/red-herring.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 在小說中，它是讓讀者走向錯誤結論的假線索，用來製造懸疑或讓反轉更震撼，作者通
+  - wiki/concepts/red-herring.md:9：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 1807 年記者 William Cobbett 寫到用煙燻鯡魚的氣味把獵犬
+  - wiki/concepts/red-herring.md:10：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 這不是真實存在的狩獵做法，只是 Cobbett 的比喻故事 [S3]
+  - wiki/concepts/red-herring.md:13：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 福爾摩斯的血字的研究中，現場出現德文 Rache，意思是復仇，讓警方和讀者以
+  - wiki/concepts/red-herring.md:16：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 在辯論中，紅鯡魚謬誤是提出無關的論點來轉移焦點 [S3]
+  - wiki/concepts/fair-play.md:5：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 公平推理是作者把所有線索都給讀者，讓讀者和偵探比賽，線索藏在眼前 [S7]
+  - wiki/concepts/fair-play.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 黃金時代的作者與讀者把推理小說當成遊戲 [S1]，Van Dine 也說作者
+  - wiki/concepts/fair-play.md:9：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 偵探不能是凶手，Knox 與 Van Dine 都這樣規定 [S1][S2]
+  - wiki/concepts/fair-play.md:10：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 不能靠超自然或運氣破案 [S1][S2]
+  - wiki/concepts/fair-play.md:11：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 偵探發現的線索要讓讀者知道 [S1][S2]
+  - wiki/concepts/fair-play.md:14：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 近年因為經典作品重新出版、各國作品翻譯與 podcast，公平推理重新流行 
+  - wiki/concepts/fair-play.md:15：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 例如在書末附上線索索引，標出每條線索出現在哪一頁 [S7]
+  - wiki/concepts/fair-play.md:16：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - Ellery Queen 會在結局前插入給讀者的挑戰書，見 [[challe
+  - wiki/concepts/unreliable-narrator.md:5：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 說故事的人本身不可信，可能說謊、隱瞞或理解錯誤，通常是第一人稱 [S4]
+  - wiki/concepts/unreliable-narrator.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - Wayne Booth 在 1961 年的 The Rhetoric of 
+  - wiki/concepts/unreliable-narrator.md:9：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 無意的不可靠：敘事者年紀小或經驗不足，看不懂發生的事 [S4]
+  - wiki/concepts/unreliable-narrator.md:10：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 有意的不可靠：敘事者有隱藏的動機，刻意扭曲事件 [S4]
+  - wiki/concepts/unreliable-narrator.md:13：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 有時一開始就很明顯，有時要等後面的資訊和敘事者說法矛盾才察覺 [S4]
+  - wiki/concepts/unreliable-narrator.md:16：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 推理作家用它誤導讀者，再在真相揭曉時推翻讀者的假設 [S4]
+  - wiki/concepts/unreliable-narrator.md:17：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 1926 年的羅傑艾克洛命案是經典例子，電影則有記憶拼圖、刺激驚爆點等 [S
+  - wiki/concepts/van-dine-rules.md:4：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → S. S. Van Dine 在 1928 年 9 月於 The America
+  - wiki/concepts/van-dine-rules.md:7：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 讀者必須和偵探擁有相同的線索，而且線索要清楚呈現 [S2]
+  - wiki/concepts/van-dine-rules.md:8：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 除了凶手對偵探使用的詭計，作者不能另外欺騙讀者 [S2]
+  - wiki/concepts/van-dine-rules.md:9：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 凶手要靠邏輯推理找出，不能靠巧合或突然的自白 [S2]
+  - wiki/concepts/van-dine-rules.md:10：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 凶手應該是讀者早已認識的角色 [S2]
+  - wiki/concepts/van-dine-rules.md:11：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 線索要能完整指向凶手，敏銳的讀者應該在最後一章前就能解開 [S2]
+  - wiki/concepts/van-dine-rules.md:12：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 死亡不能在最後揭曉只是意外或自殺 [S2]
+  - wiki/concepts/van-dine-rules.md:15：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 假降靈會、偽造指紋、雙胞胎替身、偽造的不在場證明等手法被列為老套 [S2]
+  - wiki/concepts/van-dine-rules.md:16：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 佈置出來的密室也在名單上，這和密室推理的發展有張力，見 [[locked-r
+  - wiki/concepts/challenge-to-reader.md:4：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - Ellery Queen 系列從 1929 到 1971 年，會在讀者和偵探
+  - wiki/concepts/challenge-to-reader.md:5：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 現代作家也有類似做法，例如把解答頁封起來，或讓敘事者直接告訴讀者線索在哪 [
+  - wiki/concepts/challenge-to-reader.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - Carr 的密室講義也是偵探直接對讀者說話 [S5]
+  - wiki/concepts/locked-room.md:5：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - John Dickson Carr 在 1935 年出版 The Hollo
+  - wiki/concepts/locked-room.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 第 17 章的密室講義中，Fell 博士直接對讀者說話，整理在上鎖房間犯案的
+  - wiki/concepts/locked-room.md:7：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 1981 年 17 位推理作家與書評選它為史上最佳密室推理 [S5]
+  - wiki/concepts/locked-room.md:10：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 一般整理為，凶手不在房間裡的密室可以分成七類 [S6]：
+  - wiki/concepts/locked-room.md:11：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 1. 根本不是謀殺，巧合讓意外看起來像凶殺 [S6]
+  - wiki/concepts/locked-room.md:12：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 2. 被害人受到暗示或氣體影響，自己造成死亡 [S6]
+  - wiki/concepts/locked-room.md:13：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 3. 藏在家具裡的機關自動殺人 [S6]
+  - wiki/concepts/locked-room.md:14：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 4. 自殺布置成謀殺 [S6]
+  - wiki/concepts/locked-room.md:15：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 5. 凶手假扮成被害人，讓人以為被害人當時還活著 [S6]
+  - wiki/concepts/locked-room.md:16：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 6. 凶手在房外遠距離行凶，卻像在房內犯案 [S6]
+  - wiki/concepts/locked-room.md:17：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 7. 被害人只是昏睡，被誤以為早就死了，之後才真正被殺 [S6]
+  - wiki/concepts/locked-room.md:20：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - Fell 認為密道、活動牆板是不公平的手法 [S6]
+  - wiki/concepts/locked-room.md:21：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - Van Dine 把佈置出來的密室列為老套 [S2]
+  - wiki/concepts/golden-age.md:5：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 主要指 1920 到 1930 年代，但 1911 年就有類似作品，至今仍有
+  - wiki/concepts/golden-age.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 二戰常被視為這個時代的結束，1930 年代起就有人批評它公式化、社會背景狹窄
+  - wiki/concepts/golden-age.md:7：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 1980 年代末到 1990 年代初，日本新本格作家也借用這種風格 [S1]
+  - wiki/concepts/golden-age.md:10：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 多數作品是 whodunit，謎題核心是找出誰是凶手 [S1]
+  - wiki/concepts/golden-age.md:11：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 舞台常是與外界隔絕的鄉間宅邸，嫌疑人被困在一起，桌遊 Cluedo 就借用這
+  - wiki/concepts/golden-age.md:12：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 作者與讀者把推理小說當成謎題或遊戲，Knox 在 1929 年把規則整理成十
+  - wiki/concepts/golden-age.md:13：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 1930 年成立的偵探俱樂部 Detection Club，成員承諾遵守這些
+  - wiki/concepts/golden-age.md:16：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - Agatha Christie、Dorothy L. Sayers、Marg
+  - wiki/concepts/clue-design.md:5：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 讀者要和偵探拿到相同的線索，而且線索要清楚呈現 [S2]
+  - wiki/concepts/clue-design.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 線索要能完整指向凶手 [S2]
+  - wiki/concepts/clue-design.md:7：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 凶手要在前段出場 [S1]
+  - wiki/concepts/clue-design.md:10：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 作者會用假線索誤導讀者，高手會讓最不可能的嫌疑人成為凶手 [S1]
+  - wiki/concepts/clue-design.md:11：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 假線索也就是紅鯡魚，最後要被解開 [S3]
+  - wiki/concepts/clue-design.md:14：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → - 有作家在書末附上線索索引，讓讀者回頭確認線索真的出現過 [S7]
+  - wiki/concepts/knox-decalogue.md:4：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → Ronald Knox 在 1929 年把推理遊戲的規則整理成十條，偵探俱樂部成
+  - wiki/concepts/knox-decalogue.md:6：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 1. 凶手要在故事前段出場，但不能是讀者看過內心想法的角色 [S1]
+  - wiki/concepts/knox-decalogue.md:7：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 2. 排除超自然的解釋 [S1]
+  - wiki/concepts/knox-decalogue.md:8：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 3. 密室或密道最多只能有一個 [S1]
+  - wiki/concepts/knox-decalogue.md:9：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 4. 禁止未知的毒藥，或需要長篇科學解釋的裝置 [S1]
+  - wiki/concepts/knox-decalogue.md:10：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 5. 禁止中國人角色，這反映 1920 年代西方小說對華人的刻板印象，是歷史背景
+  - wiki/concepts/knox-decalogue.md:11：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 6. 偵探不能靠巧合或直覺破案 [S1]
+  - wiki/concepts/knox-decalogue.md:12：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 7. 偵探不能是凶手 [S1]
+  - wiki/concepts/knox-decalogue.md:13：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 8. 偵探發現的線索都要讓讀者知道 [S1]
+  - wiki/concepts/knox-decalogue.md:14：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 9. 偵探的助手也就是華生，要對讀者坦白想法，而且略笨於一般讀者 [S1]
+  - wiki/concepts/knox-decalogue.md:15：概念頁必須引用到事實編號，例如 [S2-F3]，不能只寫 [S2] → 10. 雙胞胎或替身要事先鋪陳 [S1]

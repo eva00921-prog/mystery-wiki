@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>推理小說是怎麼騙過你的？給新手的推理設計入門</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #141a26; --ink: #1d2433; --paper: #f4efe4; --card: #fffdf7;
+    --red: #b8322f; --gold: #c9a227; --muted: #6b6457; --line: #ddd3bf;
+    --serif: "Noto Serif TC", serif; --sans: "Noto Sans TC", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--night); font-family: var(--sans); color: var(--ink); }
+  .deck { position: relative; height: 100vh; overflow: hidden; }
+  .slide {
+    position: absolute; inset: 0; display: none; flex-direction: column; justify-content: center;
+    padding: 6vh 8vw 10vh; background: var(--paper);
+    background-image: radial-gradient(circle at 85% 15%, rgba(201,162,39,.12), transparent 40%);
+  }
+  .slide.active { display: flex; animation: fade .35s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .slide.dark { background: var(--night); color: var(--paper); }
+  .kicker { font-size: clamp(.8rem, 1.4vw, 1rem); letter-spacing: .3em; color: var(--red); font-weight: 700; margin-bottom: 1.2vh; }
+  .dark .kicker { color: var(--gold); }
+  h1 { font-family: var(--serif); font-weight: 900; font-size: clamp(2.2rem, 5.5vw, 4.4rem); line-height: 1.2; margin: 0 0 2vh; }
+  h2 { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.8rem); margin: 0 0 3vh; line-height: 1.3; }
+  p, li { font-size: clamp(1.05rem, 2vw, 1.45rem); line-height: 1.75; }
+  ul, ol { margin: 0; padding-left: 1.3em; }
+  li + li { margin-top: 1vh; }
+  .lead { font-size: clamp(1.2rem, 2.4vw, 1.7rem); max-width: 34em; }
+  .src { display: inline-block; font-size: .62em; font-weight: 700; color: var(--muted); border: 1px solid var(--line);
+         border-radius: 999px; padding: 0 .6em; margin-left: .3em; vertical-align: .25em; font-family: var(--sans); letter-spacing: .03em; }
+  .dark .src { color: #b9b2a4; border-color: #3b4458; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2vw; }
+  .grid.two { grid-template-columns: repeat(2, 1fr); }
+  .card { background: var(--card); border-radius: 14px; padding: 2.4vh 1.6vw; box-shadow: 0 6px 24px rgba(20,26,38,.08); border-top: 5px solid var(--red); }
+  .card h3 { font-family: var(--serif); margin: 0 0 1vh; font-size: clamp(1.15rem, 2.1vw, 1.6rem); }
+  .card p { font-size: clamp(.95rem, 1.6vw, 1.2rem); margin: 0; }
+  .card.gold { border-top-color: var(--gold); }
+  .card.ink { border-top-color: var(--ink); }
+  .big { font-family: var(--serif); font-size: clamp(3rem, 8vw, 6rem); color: var(--red); line-height: 1; }
+  .note { margin-top: 3vh; padding: 1.6vh 1.4vw; border-left: 5px solid var(--gold); background: rgba(201,162,39,.1); border-radius: 0 10px 10px 0; font-size: clamp(.95rem, 1.7vw, 1.25rem); }
+  .dark .note { background: rgba(201,162,39,.12); }
+  details { background: var(--card); border-radius: 12px; padding: 1.4vh 1.4vw; margin-bottom: 1.4vh; box-shadow: 0 4px 14px rgba(20,26,38,.06); }
+  summary { cursor: pointer; font-size: clamp(1.05rem, 1.9vw, 1.4rem); font-weight: 500; }
+  details p { margin: 1vh 0 0; color: var(--red); font-weight: 700; }
+  .refs li { font-size: clamp(.85rem, 1.4vw, 1.05rem); }
+  .refs a { color: inherit; }
+  .bar { position: fixed; left: 0; bottom: 0; height: 5px; background: var(--red); transition: width .3s; z-index: 5; }
+  .nav { position: fixed; right: 2vw; bottom: 2.4vh; display: flex; gap: 8px; align-items: center; z-index: 5; }
+  .nav button { border: 0; background: rgba(20,26,38,.85); color: #fff; width: 42px; height: 42px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; }
+  .nav span { color: #fff; background: rgba(20,26,38,.85); padding: 6px 12px; border-radius: 999px; font-size: .9rem; }
+  .hint { position: fixed; left: 2vw; bottom: 2.6vh; font-size: .8rem; color: #9a927f; z-index: 5; }
+  @media (max-width: 760px) {
+    .grid, .grid.two { grid-template-columns: 1fr; gap: 1.4vh; }
+    .slide { padding: 5vh 6vw 16vh; justify-content: flex-start; overflow-y: auto; }
+    .hint { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- 1 學習目標 -->
+<section class="slide dark" data-role="goal" data-wiki="overview">
+  <div class="kicker">推理小說設計入門</div>
+  <h1>推理小說<br>是怎麼騙過你的？</h1>
+  <p class="lead">看完這份簡報，你可以：</p>
+  <ul>
+    <li>說出什麼是公平推理</li>
+    <li>分辨紅鯡魚和不可靠敘事者兩種誤導手法</li>
+    <li>用四個方向理解密室詭計</li>
+  </ul>
+</section>
+
+<!-- 2 為什麼要學 -->
+<section class="slide" data-role="why" data-wiki="golden-age">
+  <div class="kicker">為什麼要學</div>
+  <h2>推理小說是一場遊戲</h2>
+  <p class="lead">在 1920 到 1930 年代的推理小說黃金時代，作者與讀者把推理小說當成謎題或遊戲<span class="src">[S1]</span>。</p>
+  <p class="lead">既然是遊戲，就需要規則：作者能怎麼騙你？哪些騙法算作弊？</p>
+  <div class="note">懂了規則，你讀推理小說時就不只是被騙的人，而是和偵探比賽的玩家。</div>
+</section>
+
+<!-- 3 黃金時代 -->
+<section class="slide" data-role="concept" data-wiki="golden-age">
+  <div class="kicker">概念 1</div>
+  <h2>黃金時代與 whodunit</h2>
+  <div class="grid">
+    <div class="card"><div class="big" style="font-size:clamp(2.2rem,5vw,4rem);white-space:nowrap">1920–30s</div><p>黃金時代主要指 1920 到 1930 年代<span class="src">[S1]</span></p></div>
+    <div class="card gold"><h3>whodunit</h3><p>這個時代多數作品屬於 whodunit 型，謎題核心就是找出誰是凶手<span class="src">[S1]</span></p></div>
+    <div class="card ink"><h3>封閉舞台</h3><p>常在與外界隔絕的宅邸，嫌疑人被困在一起，一款叫 Cluedo 的推理桌遊就借用這個結構<span class="src">[S1]</span></p></div>
+  </div>
+</section>
+
+<!-- 4 公平推理 -->
+<section class="slide dark" data-role="concept" data-wiki="fair-play,van-dine-rules">
+  <div class="kicker">概念 2</div>
+  <h2>公平推理：線索就藏在你眼前</h2>
+  <p class="lead">有一種說法是，公平推理就是作者把所有線索都交給讀者，讓讀者和偵探比賽<span class="src">[S7]</span>。</p>
+  <div class="note">推理作家 S. S. Van Dine 在 1928 年說得更直接：作者必須對讀者公平，靠聰明取勝而不是作弊<span class="src">[S2]</span>。</div>
+</section>
+
+<!-- 5 Knox 十誡 -->
+<section class="slide" data-role="concept" data-wiki="knox-decalogue">
+  <div class="kicker">概念 3</div>
+  <h2>Knox 十誡：1929 年的遊戲規則</h2>
+  <p>1929 年，Ronald Knox 把推理遊戲的規則寫成十條<span class="src">[S1]</span>，我們把它整理成三類：</p>
+  <div class="grid">
+    <div class="card"><h3>線索要給讀者</h3><p>凶手要早出場；偵探找到的線索都要讓讀者知道<span class="src">[S1]</span></p></div>
+    <div class="card gold"><h3>答案要合理</h3><p>不能用超自然；看似上鎖的密室或密道最多一個；雙胞胎要先鋪陳<span class="src">[S1]</span></p></div>
+    <div class="card ink"><h3>要靠推理</h3><p>不能靠運氣或直覺破案；偵探不能是凶手<span class="src">[S1]</span></p></div>
+  </div>
+  <div class="note">其中禁止中國人角色的一條，反映當時西方小說的刻板印象<span class="src">[S1]</span>，今天只當作歷史背景認識。</div>
+</section>
+
+<!-- 6 Van Dine -->
+<section class="slide" data-role="concept" data-wiki="van-dine-rules">
+  <div class="kicker">概念 4</div>
+  <h2>Van Dine：讀者要和偵探站在同一條起跑線</h2>
+  <p>Van Dine 在 1928 年發表二十條規則<span class="src">[S2]</span>，其中和公平有關的三條：</p>
+  <ul>
+    <li>讀者必須和偵探擁有相同的線索<span class="src">[S2]</span></li>
+    <li>凶手要靠邏輯找出，不能靠巧合或突然自白<span class="src">[S2]</span></li>
+    <li>敏銳的讀者，應該能在最後一章前解開謎題<span class="src">[S2]</span></li>
+  </ul>
+</section>
+
+<!-- 7 挑戰書 -->
+<section class="slide dark" data-role="concept" data-wiki="challenge-to-reader">
+  <div class="kicker">作者的承諾</div>
+  <h2>給讀者的挑戰書</h2>
+  <p class="lead">有一種說法是，Ellery Queen 系列小說會在讀者和偵探都拿到全部線索時，插入一封給讀者的挑戰書，看誰先解開<span class="src">[S7]</span>。</p>
+  <div class="note">這等於作者公開宣告：線索已經給完了，接下來比的是推理。</div>
+</section>
+
+<!-- 8 線索設計 -->
+<section class="slide" data-role="concept" data-wiki="clue-design">
+  <div class="kicker">概念 5</div>
+  <h2>好的謎題 = 真線索 + 假線索</h2>
+  <div class="grid two">
+    <div class="card"><h3>真線索</h3><p>要清楚呈現，而且能完整指向凶手<span class="src">[S2]</span></p></div>
+    <div class="card gold"><h3>假線索</h3><p>把讀者引向錯誤方向；高手還會讓看起來最不可能的人成為凶手<span class="src">[S1]</span></p></div>
+  </div>
+  <div class="note">本簡報的觀點：放假線索不算違反規則，前提是讀者仍然拿得到和偵探相同、足以指向凶手的真線索。</div>
+</section>
+
+<!-- 9 紅鯡魚 -->
+<section class="slide dark" data-role="concept" data-wiki="red-herring">
+  <div class="kicker">誤導手法 1</div>
+  <h2>紅鯡魚：故事裡的假線索</h2>
+  <p class="lead">紅鯡魚可以是一種假線索，讓讀者走向錯誤結論，用來製造懸疑，作者通常會在最後解開它<span class="src">[S3]</span>。</p>
+  <div class="note">1807 年記者 Cobbett 寫了一個用煙燻鯡魚氣味把獵犬引開的故事，讓這個比喻流行起來，但並不是真實的狩獵做法<span class="src">[S3]</span>。</div>
+</section>
+
+<!-- 10 例子：Rache -->
+<section class="slide" data-role="example" data-wiki="red-herring">
+  <div class="kicker">實例　福爾摩斯</div>
+  <h2>血字的研究：牆上的一個字</h2>
+  <div class="grid two">
+    <div class="card"><h3>現場線索</h3><p>福爾摩斯故事血字的研究裡，現場出現德文 Rache，意思是復仇<span class="src">[S3]</span></p></div>
+    <div class="card gold"><h3>大家的反應</h3><p>警方和讀者因此懷疑凶手是德國人<span class="src">[S3]</span></p></div>
+  </div>
+  <div class="note">一條看起來很有說服力的線索，可以把所有人的注意力帶往一個方向，這就是紅鯡魚的力量。</div>
+</section>
+
+<!-- 11 不可靠敘事者 -->
+<section class="slide dark" data-role="concept" data-wiki="unreliable-narrator">
+  <div class="kicker">誤導手法 2</div>
+  <h2>不可靠敘事者：說故事的人不能信</h2>
+  <ul>
+    <li>敘事者可能說謊、隱瞞或誤解，通常是第一人稱<span class="src">[S4]</span></li>
+    <li>分成兩種：無意的，例如敘事者年紀小、經驗不足；有意的，敘事者刻意扭曲事件<span class="src">[S4]</span></li>
+  </ul>
+  <div class="note">本簡報的觀點：紅鯡魚是故事裡的一條線索，不可靠敘事者則是說故事的方式本身在誤導你。</div>
+  <div class="note">自編的小例子：我說那晚一直在房間讀書，卻沒說中間出門了半小時。這種手法的真實作品例子我們不舉，一說出名字就等於劇透。</div>
+</section>
+
+<!-- 12 密室 -->
+<section class="slide" data-role="concept" data-wiki="locked-room">
+  <div class="kicker">經典題型</div>
+  <h2>密室：房門鎖著，凶手怎麼辦到的？</h2>
+  <p>推理作家 John Dickson Carr 在 1935 年的小說中，讓偵探 Fell 博士直接對讀者上了一堂密室講義<span class="src">[S5]</span>。</p>
+  <p>有一種整理是，Fell 博士把凶手不在房間裡的密室分成七類<span class="src">[S6]</span>，本簡報再歸納成四個方向：</p>
+  <div class="grid two">
+    <div class="card"><h3>不是他殺</h3><p>例如巧合讓意外像凶殺，或自殺布置成謀殺<span class="src">[S6]</span></p></div>
+    <div class="card gold"><h3>機關殺人</h3><p>例如藏在家具裡的機關自動行凶<span class="src">[S6]</span></p></div>
+    <div class="card ink"><h3>時間被誤導</h3><p>例如凶手假扮被害人，讓人以為他還活著；或被害人只是昏睡，卻被以為早就死了<span class="src">[S6]</span></p></div>
+    <div class="card"><h3>從房外下手</h3><p>例如凶手在房外遠距離行凶，看起來卻像在房內<span class="src">[S6]</span></p></div>
+  </div>
+</section>
+
+<!-- 13 例子：設計小案件 -->
+<section class="slide dark" data-role="example" data-wiki="clue-design,van-dine-rules">
+  <div class="kicker">換你當作者</div>
+  <h2>設計一個公平的小案件</h2>
+  <p>自編案例：社團成果展前夜，獎盃不見了。嫌疑人：社長、學弟、學姊，學姊是最早發現獎盃不見的人。</p>
+  <ol>
+    <li>犯人要在前段出場，所以三人都在第一幕登場<span class="src">[S1]</span></li>
+    <li>答案是學弟。真線索：門禁紀錄顯示他最晚離開；他負責保管的海報筒裡有獎盃碎片</li>
+    <li>紅鯡魚：社長對行蹤說謊，最後用便利商店發票證明他只是溜出去買宵夜</li>
+    <li>公平檢查：兩條真線索都讓讀者看到了，揭曉前就能推理出學弟<span class="src">[S2]</span></li>
+  </ol>
+</section>
+
+<!-- 14 小測驗 -->
+<section class="slide" data-role="quiz" data-wiki="fair-play,red-herring,unreliable-narrator,locked-room">
+  <div class="kicker">小測驗　點題目看答案</div>
+  <h2>你學會了嗎？</h2>
+  <details><summary>1. 公平推理的核心是什麼？</summary><p>答案：讀者和偵探拿到相同的線索。</p></details>
+  <details><summary>2. 紅鯡魚和不可靠敘事者，哪一個是故事裡的一條假線索？</summary><p>答案：紅鯡魚。不可靠敘事者是說故事的人本身不可信。</p></details>
+  <details><summary>3. 被害人其實早就死了，大家卻以為他剛剛還活著，屬於密室的哪個方向？</summary><p>答案：時間被誤導。</p></details>
+</section>
+
+<!-- 15 總結 -->
+<section class="slide dark" data-role="summary" data-wiki="overview,knox-decalogue,van-dine-rules">
+  <div class="kicker">總結</div>
+  <h2>三句話記住推理設計</h2>
+  <ol>
+    <li>黃金時代把推理小說當成作者和讀者的遊戲<span class="src">[S1]</span></li>
+    <li>經典規則要求：讀者要拿到和偵探相同的線索，作者可以誤導，但真線索要在場<span class="src">[S2]</span></li>
+    <li>經典規則也要求答案合理，不能靠超自然或運氣破案<span class="src">[S1]</span></li>
+  </ol>
+  <div class="note">下次讀推理小說，試著在偵探揭曉前先說出你的答案。</div>
+</section>
+
+<!-- 16 參考資料 -->
+<section class="slide" data-role="refs" data-wiki="index">
+  <div class="kicker">參考資料</div>
+  <h2>這份簡報的知識來源</h2>
+  <p>每張投影片的內容都來自推理小說設計技巧 LLM Wiki，Wiki 再對應到以下來源：</p>
+  <ol class="refs">
+    <li>S1　<a href="https://en.wikipedia.org/wiki/Golden_Age_of_Detective_Fiction">Golden Age of Detective Fiction</a>，Wikipedia</li>
+    <li>S2　<a href="https://www.umsl.edu/~gradyf/film/vandinerules.htm">Twenty Rules for Writing Detective Stories</a>，S. S. Van Dine</li>
+    <li>S3　<a href="https://en.wikipedia.org/wiki/Red_herring">Red herring</a>，Wikipedia</li>
+    <li>S4　<a href="https://www.ebsco.com/research-starters/literature-and-writing/unreliable-narrator">Unreliable narrator</a>，EBSCO Research Starters</li>
+    <li>S5　<a href="https://en.wikipedia.org/wiki/The_Hollow_Man_(Carr_novel)">The Hollow Man</a>，Wikipedia</li>
+    <li>S6　<a href="https://alifeofmysteries.blogspot.com/2023/09/locked-room-puzzles-dr-gideon-fells.html">Locked Room Puzzles: Dr. Gideon Fell's lecture</a>，部落格</li>
+    <li>S7　<a href="https://crimereads.com/fair-play-puzzle-mysteries/">Reviving the Fair Play Puzzle Plot Tradition</a>，CrimeReads</li>
+  </ol>
+</section>
+
+</div>
+<div class="bar" id="bar"></div>
+<div class="hint">← → 或空白鍵換頁</div>
+<div class="nav"><button id="prev" aria-label="上一張">‹</button><span id="count"></span><button id="next" aria-label="下一張">›</button></div>
+<script>
+  const slides = [...document.querySelectorAll(".slide")];
+  let i = Math.max(0, Math.min(slides.length - 1, (parseInt(location.hash.slice(1)) || 1) - 1));
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle("active", k === i));
+    document.getElementById("count").textContent = `${i + 1} / ${slides.length}`;
+    document.getElementById("bar").style.width = `${((i + 1) / slides.length) * 100}%`;
+    history.replaceState(null, "", `#${i + 1}`);
+  }
+  document.addEventListener("keydown", (e) => {
+    if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); show(i - 1); }
+  });
+  document.getElementById("next").onclick = () => show(i + 1);
+  document.getElementById("prev").onclick = () => show(i - 1);
+  let x0 = null;
+  document.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; });
+  document.addEventListener("touchend", (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
+  show(i);
+</script>
+</body>
+</html>

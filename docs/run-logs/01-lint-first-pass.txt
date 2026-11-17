@@ -1,0 +1,8 @@
+❌ lint 發現 7 個問題
+  - wiki/sources/S3.md:5：事實句缺少來源標記 → - 原始資料卡：raw 資料夾中的 S3 資料卡；討論紀錄：discussion
+  - wiki/sources/S4.md:5：事實句缺少來源標記 → - 原始資料卡：raw 資料夾中的 S4 資料卡；討論紀錄：discussion
+  - wiki/sources/S7.md:5：事實句缺少來源標記 → - 原始資料卡：raw 資料夾中的 S7 資料卡；討論紀錄：discussion
+  - wiki/sources/S6.md：frontmatter sources ['S6'] 和內文引用 [] 不一致
+  - wiki/sources/S1.md:5：事實句缺少來源標記 → - 原始資料卡：raw 資料夾中的 S1 資料卡；討論紀錄：discussion
+  - wiki/sources/S5.md:5：事實句缺少來源標記 → - 原始資料卡：raw 資料夾中的 S5 資料卡；討論紀錄：discussion
+  - wiki/sources/S2.md:5：事實句缺少來源標記 → - 原始資料卡：raw 資料夾中的 S2 資料卡；討論紀錄：discussion
